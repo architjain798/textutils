@@ -45,6 +45,9 @@ function App() {
         <Alert alert={message} />
         <div className="container">
           <Switch>
+            {/* /users -->component1
+            /users/home --->component2
+            agar humne exact match use nhi kiya too jab 2 wala use krenge to 1 khulega */}
             <Route exact path="/about">
               <About mode={mode} />
             </Route>
