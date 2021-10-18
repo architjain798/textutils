@@ -30,12 +30,15 @@ export const TextForm = (props) => {
 
   const handleUpperClick = () => {
     setText(text.toUpperCase());
+    props.setAlert("Changed to Upper case", "success");
   };
   const handleLowerClick = () => {
     setText(text.toLowerCase());
+    props.setAlert("Changed to Lower case", "success");
   };
   const handleCamelClick = () => {
     setText(text.toUpperCase());
+    props.setAlert("Changed to Camel case", "success");
   };
   const handleOnchange = (e) => {
     setText(e.target.value);
@@ -46,6 +49,20 @@ export const TextForm = (props) => {
   const handleTextAreaClick = () => {
     if (text === "Enter the Text" || text === "Enter the Text".toUpperCase())
       setText("");
+  };
+  const handleCopy = () => {
+    /* Get the text field */
+    var copyText = document.getElementById("myBox");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+
+    /* Alert the copied text */
+    props.setAlert("Text copied!!", "success");
   };
   return (
     <>
@@ -71,7 +88,19 @@ export const TextForm = (props) => {
             className="form-control"
             placeholder="Leave a comment here"
             id="myBox"
-            style={{ height: "100px" }}
+            style={
+              props.mode === "dark"
+                ? {
+                    backgroundColor: "black",
+                    color: "white",
+                    height: "100px",
+                  }
+                : {
+                    backgroundColor: "white",
+                    color: "black",
+                    height: "100px",
+                  }
+            }
           />
           <label htmlFor="myBox">Add Text</label>
         </div>
@@ -95,6 +124,13 @@ export const TextForm = (props) => {
           onClick={handleCamelClick}
         >
           Covert to CamelCase
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleCopy}
+        >
+          Copy
         </button>
         <button
           type="button"
