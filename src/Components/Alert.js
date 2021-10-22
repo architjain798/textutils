@@ -7,15 +7,17 @@ const capatilize = (word) => {
 
 function Alert(props) {
   return (
-    props.alert && ( //Syntax for checking for null check
-      <div
-        className={`alert alert-${props.alert.type} alert-dismissible fade show`}
-        role="alert"
-      >
-        <strong>{capatilize(props.alert.type)}: </strong>
-        {props.alert.currentMessage}
-      </div>
-    )
+    <div style={{ height: "50px" }}>
+      {props.alert && ( //Syntax for checking for null check
+        <div
+          className={`alert alert-${props.alert.type} alert-dismissible fade show`}
+          role="alert"
+        >
+          <strong>{capatilize(props.alert.type)}: </strong>
+          {props.alert.currentMessage}
+        </div>
+      )}
+    </div>
   );
 }
 

@@ -108,6 +108,7 @@ export const TextForm = (props) => {
           type="button"
           className="btn btn-primary mx-2 my-2"
           onClick={handleUpperClick}
+          disabled={text.length === 0}
         >
           Covert to UpperCase
         </button>
@@ -115,6 +116,7 @@ export const TextForm = (props) => {
           type="button"
           className="btn btn-primary mx-2 my-2"
           onClick={handleLowerClick}
+          disabled={text.length === 0}
         >
           Covert to LowerCase
         </button>
@@ -122,6 +124,7 @@ export const TextForm = (props) => {
           type="button"
           className="btn btn-primary mx-2 my-2"
           onClick={handleCamelClick}
+          disabled={text.length === 0}
         >
           Covert to CamelCase
         </button>
@@ -129,6 +132,7 @@ export const TextForm = (props) => {
           type="button"
           className="btn btn-primary mx-2 my-2"
           onClick={handleCopy}
+          disabled={text.length === 0}
         >
           Copy
         </button>
@@ -136,6 +140,7 @@ export const TextForm = (props) => {
           type="button"
           className="btn btn-danger mx-2 my-2"
           onClick={handleClearClick}
+          disabled={text.length === 0}
         >
           CLEAR
         </button>
