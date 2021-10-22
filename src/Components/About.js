@@ -1,10 +1,24 @@
 import React from "react";
 
+const darkLight = (color) => {
+  if (color === "dark") {
+    return {
+      backgroundColor: "#3e3e40",
+      color: "white",
+    };
+  } else {
+    return {
+      backgroundColor: "white",
+      color: "black",
+    };
+  }
+};
+
 export const About = (props) => {
   return (
-    <div className="container">
+    <div className="container" style={darkLight(props.mode)}>
       <div className="accordion" id="accordionExample">
-        <div className="accordion-item">
+        <div className="accordion-item" style={darkLight(props.mode)}>
           <h2 className="accordion-header" id="headingOne">
             <button
               className="accordion-button"
@@ -13,6 +27,7 @@ export const About = (props) => {
               data-bs-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
+              style={darkLight(props.mode)}
             >
               Accordion Item #1
             </button>
@@ -35,7 +50,7 @@ export const About = (props) => {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        <div className="accordion-item" style={darkLight(props.mode)}>
           <h2 className="accordion-header" id="headingTwo">
             <button
               className="accordion-button collapsed"
@@ -44,6 +59,7 @@ export const About = (props) => {
               data-bs-target="#collapseTwo"
               aria-expanded="false"
               aria-controls="collapseTwo"
+              style={darkLight(props.mode)}
             >
               Accordion Item #2
             </button>
@@ -66,7 +82,7 @@ export const About = (props) => {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        <div className="accordion-item" style={darkLight(props.mode)}>
           <h2 className="accordion-header" id="headingThree">
             <button
               className="accordion-button collapsed"
@@ -75,6 +91,7 @@ export const About = (props) => {
               data-bs-target="#collapseThree"
               aria-expanded="false"
               aria-controls="collapseThree"
+              style={darkLight(props.mode)}
             >
               Accordion Item #3
             </button>

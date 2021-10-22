@@ -6,7 +6,7 @@ let darkMode = {
 };
 
 export const TextForm = (props) => {
-  const [text, setText] = useState("Enter the Text");
+  const [text, setText] = useState("");
 
   const [currentTheme, changeTheme] = useState(darkMode);
 
@@ -167,8 +167,13 @@ export const TextForm = (props) => {
         <h4 className="text-center">YOUR FINAL TEXT</h4>
         <p>{text}</p>
         <h4>
-          Your text has {text.split(" ").length} words and {text.length}{" "}
-          characters
+          Your text has{" "}
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </h4>
       </div>
     </>
